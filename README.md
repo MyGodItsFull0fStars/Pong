@@ -3,6 +3,8 @@
 Small University project to get started using Phaser.
 Since I'm a beginner in creating games, every input is highly appreciated and the following text is just a summary of the commit changes.
 
+First, a Web Server needs to be set up to start the game. This can be achieved either with an IDE like WebStorm by Jetbrains or following one of the different methods in the following link: https://www.phaser.io/tutorials/getting-started/index
+
 
 With first commit it is still rather Pong, but uses different png's for ball and paddle. (back then a volleyball as a ball)
 Also tried out hands as paddles, since it would fit the volleyball. 
