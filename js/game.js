@@ -27,7 +27,7 @@ var graphicAssets = {
     ballName: 'ball',
     
     paddleURL: 'assets/axe_left.png',
-    paddleName: 'paddle',
+    paddleLeftName: 'paddle',
 
     paddleRightURL: 'assets/axe_right.png',
     paddleRightName: 'paddleRight',
@@ -121,7 +121,7 @@ var mainState = function(game) {
 mainState.prototype = {
     preload: function () {
         game.load.image(graphicAssets.ballName, graphicAssets.ballURL);
-        game.load.image(graphicAssets.paddleName, graphicAssets.paddleURL);
+        game.load.image(graphicAssets.paddleLeftName, graphicAssets.paddleURL);
         game.load.image(graphicAssets.paddleRightName, graphicAssets.paddleRightURL);
         
         game.load.audio(soundAssets.ballBounceName, [soundAssets.ballBounceURL+soundAssets.mp4URL, soundAssets.ballBounceURL+soundAssets.oggURL]);
@@ -159,7 +159,7 @@ mainState.prototype = {
         this.ballSprite = game.add.sprite(game.world.centerX, game.world.centerY, graphicAssets.ballName);
         this.ballSprite.anchor.set(0.5, 0.5);
         
-        this.paddleLeftSprite = game.add.sprite(gameProperties.paddleLeft_x, game.world.centerY, graphicAssets.paddleName);
+        this.paddleLeftSprite = game.add.sprite(gameProperties.paddleLeft_x, game.world.centerY, graphicAssets.paddleLeftName);
         this.paddleLeftSprite.anchor.set(0.5, 0.5);
         
         this.paddleRightSprite = game.add.sprite(gameProperties.paddleRight_x, game.world.centerY, graphicAssets.paddleRightName);
