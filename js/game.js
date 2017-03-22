@@ -37,7 +37,7 @@ var soundAssets = {
     ballBounceURL: 'assets/ballBounce',
     ballBounceName: 'ballBounce',
     
-    ballHitURL: 'assets/ballHit',
+    ballHitURL: 'assets/battle_axe',
     ballHitName: 'ballHit',
     
     ballMissedURL: 'assets/ballMissed',
