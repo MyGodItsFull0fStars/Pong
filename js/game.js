@@ -34,13 +34,13 @@ var graphicAssets = {
 };
 
 var soundAssets = {
-    ballBounceURL: 'assets/ballBounce',
+    ballBounceURL: 'assets/bounce_sound',
     ballBounceName: 'ballBounce',
     
-    ballHitURL: 'assets/battle_axe',
+    ballHitURL: 'assets/battle_axe_sound',
     ballHitName: 'ballHit',
     
-    ballMissedURL: 'assets/ballMissed',
+    ballMissedURL: 'assets/bomb_sound',
     ballMissedName: 'ballMissed',
     
     mp4URL: '.m4a',
