@@ -42,6 +42,9 @@ var soundAssets = {
     
     ballMissedURL: 'assets/bomb_sound',
     ballMissedName: 'ballMissed',
+
+    backgroundMusicURL: 'assets/background_sound',
+    backgroundMusicName: 'backgroundmusic',
     
     mp4URL: '.m4a',
     oggURL: '.ogg',
@@ -53,7 +56,7 @@ var fontAssets = {
     scoreTop_y: 10,
     
     scoreFontStyle:{font: '80px Arial', fill: '#FFFFFF', align: 'center'},
-    instructionsFontStyle:{font: '24px Arial', fill: '#FFFFFF', align: 'center'},
+    instructionsFontStyle:{font: '24px Helvetica', fill: '#FFFFFF', align: 'center'},
 }
 
 var labels = {
@@ -127,6 +130,7 @@ mainState.prototype = {
         game.load.audio(soundAssets.ballBounceName, [soundAssets.ballBounceURL+soundAssets.mp4URL, soundAssets.ballBounceURL+soundAssets.oggURL]);
         game.load.audio(soundAssets.ballHitName, [soundAssets.ballHitURL+soundAssets.mp4URL, soundAssets.ballHitURL+soundAssets.oggURL]);
         game.load.audio(soundAssets.ballMissedName, [soundAssets.ballMissedURL+soundAssets.mp4URL, soundAssets.ballMissedURL+soundAssets.oggURL]);
+        game.load.audio(soundAssets.backgroundMusicName, [soundAssets.backgroundMusicURL + soundAssets.mp4URL, soundAssets.backgroundMusicURL + soundAssets.oggURL]);
     },
     
     create: function () {
@@ -214,6 +218,7 @@ mainState.prototype = {
     },
     
     initSounds: function () {
+        this.sndBackground = game.add.audio(soundAssets.backgroundMusicName);
         this.sndBallHit = game.add.audio(soundAssets.ballHitName);
         this.sndBallBounce = game.add.audio(soundAssets.ballBounceName);
         this.sndBallMissed = game.add.audio(soundAssets.ballMissedName);
@@ -231,6 +236,7 @@ mainState.prototype = {
     
     startGame: function () {
         game.input.onDown.remove(this.startGame, this);
+        this.sndBackground.play();
         
         this.enablePaddles(true);
         this.enableBoundaries(false);
