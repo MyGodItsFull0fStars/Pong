@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f97e85be-299d-4b20-a4b5-c4782428cdc8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/game.js" afterPath="$PROJECT_DIR$/js/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/phaser.min.js" afterPath="$PROJECT_DIR$/js/phaser.min.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,8 +23,8 @@
       <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="323" column="53" lean-forward="false" selection-start-line="323" selection-start-column="53" selection-end-line="323" selection-end-column="53" />
+            <state relative-caret-position="512">
+              <caret line="345" column="54" lean-forward="false" selection-start-line="345" selection-start-column="54" selection-end-line="345" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -38,6 +37,7 @@
       <find>paddleLeftSprite</find>
       <find>y</find>
       <find>velocity</find>
+      <find>ballVelocityIncre</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -226,12 +226,12 @@
       <option name="presentableId" value="Default" />
       <updated>1490297580741</updated>
       <workItem from="1490297582585" duration="61000" />
-      <workItem from="1490297657786" duration="2973000" />
+      <workItem from="1490297657786" duration="3625000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3034000" />
+    <option name="totallyTimeSpent" value="3686000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -285,8 +285,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="323" column="53" lean-forward="false" selection-start-line="323" selection-start-column="53" selection-end-line="323" selection-end-column="53" />
+        <state relative-caret-position="512">
+          <caret line="345" column="54" lean-forward="false" selection-start-line="345" selection-start-column="54" selection-end-line="345" selection-end-column="54" />
           <folding />
         </state>
       </provider>

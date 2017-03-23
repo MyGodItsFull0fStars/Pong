@@ -341,8 +341,16 @@ mainState.prototype = {
         }
         else if (this.paddleRight_down.isDown) {
             this.paddleRightSprite.body.velocity.y = gameProperties.paddleVelocity;
-        } else {
+        }
+        else if (this.paddleRight_left.isDown) {
+            this.paddleRightSprite.body.velocity.x = -gameProperties.paddleVelocity;
+        }
+        else if(this.paddleRight_right.isDown) {
+            this.paddleRightSprite.body.velocity.x = gameProperties.paddleVelocity;
+        }
+        else {
             this.paddleRightSprite.body.velocity.y = 0;
+            this.paddleRightSprite.body.velocity.x = 0;
         }
 
         if (this.paddleRightSprite.body.y < gameProperties.paddleTopGap) {
