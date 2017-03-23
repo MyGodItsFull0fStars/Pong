@@ -83,11 +83,18 @@ var mainState = function (game) {
 
      ---------------------------------------------------------------------------------------------
      */
+
+
     this.paddleLeft_up = null;
     this.paddleLeft_down = null;
+    this.paddleLeft_left = null;
+    this.paddleLeft_right = null;
+
+
     this.paddleRight_up = null;
     this.paddleRight_down = null;
-
+    this.paddleRight_left = null;
+    this.paddleRight_right = null;
 
     this.missedSide = null;
 
@@ -218,11 +225,18 @@ mainState.prototype = {
     },
 
     initKeyboard: function () {
-        this.paddleLeft_up = game.input.keyboard.addKey(Phaser.Keyboard.A);
-        this.paddleLeft_down = game.input.keyboard.addKey(Phaser.Keyboard.Z);
 
+        // Left Paddle
+        this.paddleLeft_up = game.input.keyboard.addKey(Phaser.Keyboard.W);
+        this.paddleLeft_down = game.input.keyboard.addKey(Phaser.Keyboard.S);
+        this.paddleLeft_left = game.input.keyboard.addKey(Phaser.Keyboard.A);
+        this.paddleLeft_right = game.input.keyboard.addKey(Phaser.Keyboard.D);
+
+        // Right Paddle
         this.paddleRight_up = game.input.keyboard.addKey(Phaser.Keyboard.UP);
         this.paddleRight_down = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
+        this.paddleRight_left = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
+        this.paddleRight_right = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
     },
 
     initSounds: function () {
@@ -281,10 +295,16 @@ mainState.prototype = {
 
         this.paddleLeft_up.enabled = enabled;
         this.paddleLeft_down.enabled = enabled;
+        this.paddleLeft_left.enabled = enabled;
+        this.paddleLeft_right.enabled = enabled;
+
         this.paddleRight_up.enabled = enabled;
         this.paddleRight_down.enabled = enabled;
+        this.paddleRight_left.enabled = enabled;
+        this.paddleLeft_right.enabled = enabled;
 
         this.paddleLeftSprite.y = game.world.centerY;
+        this.paddleLeftSprite.x = game.world.centerX - (gameProperties.screenWidth / 2 ) + 50;
         this.paddleRightSprite.y = game.world.centerY;
     },
 
@@ -299,10 +319,17 @@ mainState.prototype = {
         }
         else if (this.paddleLeft_down.isDown) {
             this.paddleLeftSprite.body.velocity.y = gameProperties.paddleVelocity;
-        } else {
-            this.paddleLeftSprite.body.velocity.y = 0;
         }
-
+        else if (this.paddleLeft_left.isDown) {
+            this.paddleLeftSprite.body.velocity.x = -gameProperties.paddleVelocity;
+        }
+        else if (this.paddleLeft_right.isDown) {
+            this.paddleLeftSprite.body.velocity.x = gameProperties.paddleVelocity;
+        }
+        else {
+            this.paddleLeftSprite.body.velocity.y = 0;
+            this.paddleLeftSprite.body.velocity.x = 0;
+        }
         if (this.paddleLeftSprite.body.y < gameProperties.paddleTopGap) {
             this.paddleLeftSprite.body.y = gameProperties.paddleTopGap;
         }
