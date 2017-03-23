@@ -6,7 +6,7 @@ var gameProperties = {
 
     paddleLeft_x: 50,
     paddleRight_x: 590,
-    paddleVelocity: 600,
+    paddleVelocity: 620,
     paddleSegmentsMax: 4,
     paddleSegmentHeight: 4,
     paddleSegmentAngle: 15,

@@ -16,3 +16,6 @@ Changed the paddles to Battle axes and also the sound to an axe swing when hitti
 Update 21:30:
 Added a better fitting bounce sound and changed a few filenames. E.g. files containing sounds end with _sound.
 
+Update 23.03.2017 22:00:
+Today background music/graphic were added. Also added left/right movement to the paddles for more dynamic playstyle
+
