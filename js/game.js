@@ -240,7 +240,9 @@ mainState.prototype = {
     },
 
     initSounds: function () {
+
         this.sndBackground = game.add.audio(soundAssets.backgroundMusicName);
+        //this.sndBackground.loop();
         this.sndBallHit = game.add.audio(soundAssets.ballHitName);
         this.sndBallBounce = game.add.audio(soundAssets.ballBounceName);
         this.sndBallMissed = game.add.audio(soundAssets.ballMissedName);
@@ -284,9 +286,11 @@ mainState.prototype = {
     },
 
     resetBall: function () {
+        this.sndBackground.stop();
         this.ballSprite.reset(game.world.centerX, game.rnd.between(0, gameProperties.screenHeight));
         this.ballSprite.visible = false;
         game.time.events.add(Phaser.Timer.SECOND * gameProperties.ballStartDelay, this.startBall, this);
+        this.sndBackground.start();
     },
 
     enablePaddles: function (enabled) {
