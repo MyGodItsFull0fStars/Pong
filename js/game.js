@@ -323,9 +323,26 @@ mainState.prototype = {
         else if (this.paddleLeft_left.isDown) {
             this.paddleLeftSprite.body.velocity.x = -gameProperties.paddleVelocity;
         }
+        else if (this.paddleLeft_left.isDown && this.paddleLeft_up.isDown) {
+            this.paddleLeftSprite.body.velocity.y = -gameProperties.paddleVelocity;
+            this.paddleLeftSprite.body.velocity.x = -gameProperties.paddleVelocity;
+        }
+        else if (this.paddleLeft_left.isDown && this.paddleLeft_down.isDown) {
+            this.paddleLeftSprite.body.velocity.y = gameProperties.paddleVelocity;
+            this.paddleLeftSprite.body.velocity.x = -gameProperties.paddleVelocity;
+        }
+        else if (this.paddleLeft_right.isDown && this.paddleLeft_up.isDown) {
+            this.paddleLeftSprite.body.velocity.y = -gameProperties.paddleVelocity;
+            this.paddleLeftSprite.body.velocity.x = gameProperties.paddleVelocity;
+        }
+        else if (this.paddleLeft_right.isDown && this.paddleLeft_down.isDown) {
+            this.paddleLeftSprite.body.velocity.y = gameProperties.paddleVelocity;
+            this.paddleLeftSprite.body.velocity.x = gameProperties.paddleVelocity;
+        }
         else if (this.paddleLeft_right.isDown) {
             this.paddleLeftSprite.body.velocity.x = gameProperties.paddleVelocity;
         }
+
         else {
             this.paddleLeftSprite.body.velocity.y = 0;
             this.paddleLeftSprite.body.velocity.x = 0;
@@ -336,17 +353,33 @@ mainState.prototype = {
     },
 
     moveRightPaddle: function () {
-        if (this.paddleRight_up.isDown) {
-            this.paddleRightSprite.body.velocity.y = -gameProperties.paddleVelocity;
+        if (this.paddleLeft_up.isDown) {
+            this.paddleLeftSprite.body.velocity.y = -gameProperties.paddleVelocity;
         }
-        else if (this.paddleRight_down.isDown) {
-            this.paddleRightSprite.body.velocity.y = gameProperties.paddleVelocity;
+        else if (this.paddleLeft_down.isDown) {
+            this.paddleLeftSprite.body.velocity.y = gameProperties.paddleVelocity;
         }
-        else if (this.paddleRight_left.isDown) {
-            this.paddleRightSprite.body.velocity.x = -gameProperties.paddleVelocity;
+        else if (this.paddleLeft_left.isDown) {
+            this.paddleLeftSprite.body.velocity.x = -gameProperties.paddleVelocity;
         }
-        else if(this.paddleRight_right.isDown) {
-            this.paddleRightSprite.body.velocity.x = gameProperties.paddleVelocity;
+        else if (this.paddleLeft_left.isDown && this.paddleLeft_up.isDown) {
+            this.paddleLeftSprite.body.velocity.y = -gameProperties.paddleVelocity;
+            this.paddleLeftSprite.body.velocity.x = -gameProperties.paddleVelocity;
+        }
+        else if (this.paddleLeft_left.isDown && this.paddleLeft_down.isDown) {
+            this.paddleLeftSprite.body.velocity.y = gameProperties.paddleVelocity;
+            this.paddleLeftSprite.body.velocity.x = -gameProperties.paddleVelocity;
+        }
+        else if (this.paddleLeft_right.isDown && this.paddleLeft_up.isDown) {
+            this.paddleLeftSprite.body.velocity.y = -gameProperties.paddleVelocity;
+            this.paddleLeftSprite.body.velocity.x = gameProperties.paddleVelocity;
+        }
+        else if (this.paddleLeft_right.isDown && this.paddleLeft_down.isDown) {
+            this.paddleLeftSprite.body.velocity.y = gameProperties.paddleVelocity;
+            this.paddleLeftSprite.body.velocity.x = gameProperties.paddleVelocity;
+        }
+        else if (this.paddleLeft_right.isDown) {
+            this.paddleLeftSprite.body.velocity.x = gameProperties.paddleVelocity;
         }
         else {
             this.paddleRightSprite.body.velocity.y = 0;
