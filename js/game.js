@@ -64,7 +64,7 @@ var fontAssets = {
 };
 
 var labels = {
-    clickToStart: 'Left paddle: A to move up, Z to move down.\n\nRight paddle: UP and DOWN arrow keys.\n\n- click to start -',
+    clickToStart: 'Left paddle: W,A,S,D for movement.\n\nRight paddle: UP, DOWN, LEFT and RIGHT for movement.\n\n- click to start -',
     winner: 'Winner!'
 };
 
