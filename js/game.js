@@ -158,7 +158,10 @@ mainState.prototype = {
         this.moveRightPaddle();
         game.physics.arcade.overlap(this.ballSprite, this.paddleGroup, this.collideWithPaddle, null, this);
 
-        if (this.ballSprite.body.blocked.up || this.ballSprite.body.blocked.down || this.ballSprite.body.blocked.left || this.ballSprite.body.blocked.right) {
+        if (this.ballSprite.body.blocked.up
+            || this.ballSprite.body.blocked.down
+            || this.ballSprite.body.blocked.left
+            || this.ballSprite.body.blocked.right) {
             this.sndBallBounce.play();
         }
     },
@@ -242,7 +245,6 @@ mainState.prototype = {
     initSounds: function () {
 
         this.sndBackground = game.add.audio(soundAssets.backgroundMusicName);
-        //this.sndBackground.loop();
         this.sndBallHit = game.add.audio(soundAssets.ballHitName);
         this.sndBallBounce = game.add.audio(soundAssets.ballBounceName);
         this.sndBallMissed = game.add.audio(soundAssets.ballMissedName);
@@ -281,16 +283,13 @@ mainState.prototype = {
         } else if (this.missedSide == 'left') {
             randomAngle = game.rnd.pick(gameProperties.ballRandomStartingAngleLeft);
         }
-
         game.physics.arcade.velocityFromAngle(randomAngle, gameProperties.ballVelocity, this.ballSprite.body.velocity);
     },
 
     resetBall: function () {
-        this.sndBackground.stop();
         this.ballSprite.reset(game.world.centerX, game.rnd.between(0, gameProperties.screenHeight));
         this.ballSprite.visible = false;
         game.time.events.add(Phaser.Timer.SECOND * gameProperties.ballStartDelay, this.startBall, this);
-        this.sndBackground.start();
     },
 
     enablePaddles: function (enabled) {
@@ -318,6 +317,7 @@ mainState.prototype = {
     },
 
     moveLeftPaddle: function () {
+        // game.world.centerY
         if (this.paddleLeft_up.isDown) {
             this.paddleLeftSprite.body.velocity.y = -gameProperties.paddleVelocity;
         }
@@ -354,36 +354,40 @@ mainState.prototype = {
         if (this.paddleLeftSprite.body.y < gameProperties.paddleTopGap) {
             this.paddleLeftSprite.body.y = gameProperties.paddleTopGap;
         }
+
+        if (this.paddleLeftSprite.body.x + this.paddleLeftSprite.body.width > gameProperties.screenWidth / 2) {
+            this.paddleLeftSprite.body.x = gameProperties.screenWidth / 2 - this.paddleLeftSprite.body.width;
+        }
     },
 
     moveRightPaddle: function () {
-        if (this.paddleLeft_up.isDown) {
-            this.paddleLeftSprite.body.velocity.y = -gameProperties.paddleVelocity;
+        if (this.paddleRight_up.isDown) {
+            this.paddleRightSprite.body.velocity.y = -gameProperties.paddleVelocity;
         }
-        else if (this.paddleLeft_down.isDown) {
-            this.paddleLeftSprite.body.velocity.y = gameProperties.paddleVelocity;
+        else if (this.paddleRight_down.isDown) {
+            this.paddleRightSprite.body.velocity.y = gameProperties.paddleVelocity;
         }
-        else if (this.paddleLeft_left.isDown) {
-            this.paddleLeftSprite.body.velocity.x = -gameProperties.paddleVelocity;
+        else if (this.paddleRight_left.isDown) {
+            this.paddleRightSprite.body.velocity.x = -gameProperties.paddleVelocity;
         }
-        else if (this.paddleLeft_left.isDown && this.paddleLeft_up.isDown) {
-            this.paddleLeftSprite.body.velocity.y = -gameProperties.paddleVelocity;
-            this.paddleLeftSprite.body.velocity.x = -gameProperties.paddleVelocity;
+        else if (this.paddleRight_left.isDown && this.paddleLeft_up.isDown) {
+            this.paddleRightSprite.body.velocity.y = -gameProperties.paddleVelocity;
+            this.paddleRightSprite.body.velocity.x = -gameProperties.paddleVelocity;
         }
-        else if (this.paddleLeft_left.isDown && this.paddleLeft_down.isDown) {
-            this.paddleLeftSprite.body.velocity.y = gameProperties.paddleVelocity;
-            this.paddleLeftSprite.body.velocity.x = -gameProperties.paddleVelocity;
+        else if (this.paddleRight_left.isDown && this.paddleRight_down.isDown) {
+            this.paddleRightSprite.body.velocity.y = gameProperties.paddleVelocity;
+            this.paddleRightSprite.body.velocity.x = -gameProperties.paddleVelocity;
         }
-        else if (this.paddleLeft_right.isDown && this.paddleLeft_up.isDown) {
-            this.paddleLeftSprite.body.velocity.y = -gameProperties.paddleVelocity;
-            this.paddleLeftSprite.body.velocity.x = gameProperties.paddleVelocity;
+        else if (this.paddleRight_right.isDown && this.paddleRight_up.isDown) {
+            this.paddleRightSprite.body.velocity.y = -gameProperties.paddleVelocity;
+            this.paddleRightSprite.body.velocity.x = gameProperties.paddleVelocity;
         }
-        else if (this.paddleLeft_right.isDown && this.paddleLeft_down.isDown) {
-            this.paddleLeftSprite.body.velocity.y = gameProperties.paddleVelocity;
-            this.paddleLeftSprite.body.velocity.x = gameProperties.paddleVelocity;
+        else if (this.paddleRight_right.isDown && this.paddleRight_down.isDown) {
+            this.paddleRightSprite.body.velocity.y = gameProperties.paddleVelocity;
+            this.paddleRightSprite.body.velocity.x = gameProperties.paddleVelocity;
         }
-        else if (this.paddleLeft_right.isDown) {
-            this.paddleLeftSprite.body.velocity.x = gameProperties.paddleVelocity;
+        else if (this.paddleRight_right.isDown) {
+            this.paddleRightSprite.body.velocity.x = gameProperties.paddleVelocity;
         }
         else {
             this.paddleRightSprite.body.velocity.y = 0;
@@ -392,6 +396,9 @@ mainState.prototype = {
 
         if (this.paddleRightSprite.body.y < gameProperties.paddleTopGap) {
             this.paddleRightSprite.body.y = gameProperties.paddleTopGap;
+        }
+        if (this.paddleRightSprite.body.x < gameProperties.screenWidth / 2) {
+            this.paddleRightSprite.body.x = gameProperties.screenWidth / 2;
         }
     },
 
